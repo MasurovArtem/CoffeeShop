@@ -13,7 +13,7 @@ namespace CoffeeShop.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202003161231393_AddProductTypeToDB"; }
+            get { return "202003161244251_AddProductTypeToDB"; }
         }
         
         string IMigrationMetadata.Source

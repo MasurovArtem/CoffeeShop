@@ -62,9 +62,9 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202003161231393_AddProductTypeToDB.cs" />
-    <Compile Include="Migrations\202003161231393_AddProductTypeToDB.designer.cs">
-      <DependentUpon>202003161231393_AddProductTypeToDB.cs</DependentUpon>
+    <Compile Include="Migrations\202003161244251_AddProductTypeToDB.cs" />
+    <Compile Include="Migrations\202003161244251_AddProductTypeToDB.designer.cs">
+      <DependentUpon>202003161244251_AddProductTypeToDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="model\CoffeeDbContext.cs" />
@@ -72,8 +72,9 @@
     <Compile Include="model\ProductType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Migrations\202003161231393_AddProductTypeToDB.resx">
-      <DependentUpon>202003161231393_AddProductTypeToDB.cs</DependentUpon>
+    <Compile Include="TransactionItem.cs" />
+    <EmbeddedResource Include="Migrations\202003161244251_AddProductTypeToDB.resx">
+      <DependentUpon>202003161244251_AddProductTypeToDB.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

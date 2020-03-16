@@ -8,14 +8,11 @@
         public override void Up()
         {
             CreateTable(
-                "dbo.Products",
+                "dbo.ProductTypes",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        ProductTypeId = c.Int(nullable: false),
                         Description = c.String(),
-                        Price = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        Image = c.Binary(),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -23,7 +20,7 @@
         
         public override void Down()
         {
-            DropTable("dbo.Products");
+            DropTable("dbo.ProductTypes");
         }
     }
 }
