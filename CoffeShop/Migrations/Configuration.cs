@@ -1,4 +1,4 @@
-﻿namespace CoffeShop.Migrations
+﻿namespace CoffeeShop.Migrations
 {
     using System;
     using System.Data.Entity;

@@ -1,4 +1,4 @@
-﻿namespace CoffeShop
+﻿namespace CoffeeShop
 {
     partial class Form1
     {
