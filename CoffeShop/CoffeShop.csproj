@@ -70,6 +70,7 @@
     <Compile Include="model\CoffeeDbContext.cs" />
     <Compile Include="model\Product.cs" />
     <Compile Include="model\ProductType.cs" />
+    <Compile Include="model\Transaction.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TransactionItem.cs" />
