@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CoffeeShop.model;
 using CoffeeShop.view;
+using CoffeeShop.view.menuControl;
 
 namespace CoffeeShop
 {
@@ -34,6 +35,12 @@ namespace CoffeeShop
             var viewProducts = new ViewProducts();
             viewProducts.Show();
 
+        }
+
+        private void btnOpenPOS_Click(object sender, EventArgs e)
+        {
+            var coffeeShopPOS = new CoffeeShopPOS();
+            coffeeShopPOS.Show();
         }
     }
 }

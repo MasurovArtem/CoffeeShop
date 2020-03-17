@@ -30,13 +30,19 @@
         {
             this.btnAddProduct = new System.Windows.Forms.Button();
             this.btnViewProducts = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnOpenPOS = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAddProduct
             // 
-            this.btnAddProduct.Location = new System.Drawing.Point(13, 13);
+            this.btnAddProduct.Location = new System.Drawing.Point(6, 25);
             this.btnAddProduct.Name = "btnAddProduct";
-            this.btnAddProduct.Size = new System.Drawing.Size(411, 39);
+            this.btnAddProduct.Size = new System.Drawing.Size(400, 39);
             this.btnAddProduct.TabIndex = 0;
             this.btnAddProduct.Text = "Add Product";
             this.btnAddProduct.UseVisualStyleBackColor = true;
@@ -44,23 +50,66 @@
             // 
             // btnViewProducts
             // 
-            this.btnViewProducts.Location = new System.Drawing.Point(12, 70);
+            this.btnViewProducts.Location = new System.Drawing.Point(6, 79);
             this.btnViewProducts.Name = "btnViewProducts";
-            this.btnViewProducts.Size = new System.Drawing.Size(411, 39);
+            this.btnViewProducts.Size = new System.Drawing.Size(400, 39);
             this.btnViewProducts.TabIndex = 1;
             this.btnViewProducts.Text = "View Products";
             this.btnViewProducts.UseVisualStyleBackColor = true;
             this.btnViewProducts.Click += new System.EventHandler(this.btnViewProducts_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnOpenPOS);
+            this.groupBox1.Controls.Add(this.btnAddProduct);
+            this.groupBox1.Controls.Add(this.btnViewProducts);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(412, 194);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Stock";
+            // 
+            // btnOpenPOS
+            // 
+            this.btnOpenPOS.Location = new System.Drawing.Point(6, 134);
+            this.btnOpenPOS.Name = "btnOpenPOS";
+            this.btnOpenPOS.Size = new System.Drawing.Size(400, 39);
+            this.btnOpenPOS.TabIndex = 2;
+            this.btnOpenPOS.Text = "Open POS";
+            this.btnOpenPOS.UseVisualStyleBackColor = true;
+            this.btnOpenPOS.Click += new System.EventHandler(this.btnOpenPOS_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Location = new System.Drawing.Point(12, 229);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(412, 88);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Start system";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(6, 30);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(400, 39);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Open Till";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(436, 450);
-            this.Controls.Add(this.btnViewProducts);
-            this.Controls.Add(this.btnAddProduct);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.Text = "CoffeeShop";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -69,6 +118,10 @@
 
         private System.Windows.Forms.Button btnAddProduct;
         private System.Windows.Forms.Button btnViewProducts;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnOpenPOS;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button button2;
     }
 }
 

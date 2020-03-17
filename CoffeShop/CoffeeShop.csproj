@@ -80,6 +80,12 @@
     <Compile Include="view\AddProduct.Designer.cs">
       <DependentUpon>AddProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\menuControl\CoffeeShopPOS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\menuControl\CoffeeShopPOS.Designer.cs">
+      <DependentUpon>CoffeeShopPOS.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\ViewProducts.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,9 @@
     </Compile>
     <EmbeddedResource Include="view\AddProduct.resx">
       <DependentUpon>AddProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\menuControl\CoffeeShopPOS.resx">
+      <DependentUpon>CoffeeShopPOS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\ViewProducts.resx">
       <DependentUpon>ViewProducts.cs</DependentUpon>

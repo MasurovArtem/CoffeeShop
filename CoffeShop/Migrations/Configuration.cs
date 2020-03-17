@@ -1,18 +1,20 @@
-﻿namespace CoffeeShop.Migrations
+﻿using CoffeeShop.model;
+
+namespace CoffeeShop.Migrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<CoffeeShop.model.CoffeeDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<CoffeeDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(CoffeeShop.model.CoffeeDbContext context)
+        protected override void Seed(CoffeeDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 
