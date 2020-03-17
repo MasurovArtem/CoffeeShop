@@ -22,10 +22,17 @@ namespace CoffeeShop
             _db = new CoffeeDbContext();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void AddProduct_Click(object sender, EventArgs e)
         {
             var addProduct = new AddProduct();
             addProduct.Show();
+
+        }
+
+        private void btnViewProducts_Click(object sender, EventArgs e)
+        {
+            var viewProducts = new ViewProducts();
+            viewProducts.Show();
 
         }
     }

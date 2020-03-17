@@ -28,34 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAddProduct = new System.Windows.Forms.Button();
+            this.btnViewProducts = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // btnAddProduct
             // 
-            this.button1.Location = new System.Drawing.Point(13, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 38);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnAddProduct.Location = new System.Drawing.Point(13, 13);
+            this.btnAddProduct.Name = "btnAddProduct";
+            this.btnAddProduct.Size = new System.Drawing.Size(411, 39);
+            this.btnAddProduct.TabIndex = 0;
+            this.btnAddProduct.Text = "Add Product";
+            this.btnAddProduct.UseVisualStyleBackColor = true;
+            this.btnAddProduct.Click += new System.EventHandler(this.AddProduct_Click);
+            // 
+            // btnViewProducts
+            // 
+            this.btnViewProducts.Location = new System.Drawing.Point(12, 70);
+            this.btnViewProducts.Name = "btnViewProducts";
+            this.btnViewProducts.Size = new System.Drawing.Size(411, 39);
+            this.btnViewProducts.TabIndex = 1;
+            this.btnViewProducts.Text = "View Products";
+            this.btnViewProducts.UseVisualStyleBackColor = true;
+            this.btnViewProducts.Click += new System.EventHandler(this.btnViewProducts_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(436, 450);
+            this.Controls.Add(this.btnViewProducts);
+            this.Controls.Add(this.btnAddProduct);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "CoffeeShop";
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAddProduct;
+        private System.Windows.Forms.Button btnViewProducts;
     }
 }
 

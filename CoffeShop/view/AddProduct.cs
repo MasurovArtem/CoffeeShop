@@ -41,7 +41,6 @@ namespace CoffeeShop.view
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            //var numberFormatInfo = new NumberFormatInfo { NumberDecimalSeparator = "." };
             var product = new Product
             {
                 Description = txtDecription.Text,
@@ -52,6 +51,8 @@ namespace CoffeeShop.view
 
             _db.Products.Add(product);
             _db.SaveChanges();
+
+            MessageBox.Show("Record saved");
         }
     }
 }
