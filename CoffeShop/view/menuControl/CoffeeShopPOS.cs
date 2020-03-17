@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using CoffeeShop.model;
@@ -10,6 +11,18 @@ namespace CoffeeShop.view.menuControl
     public partial class CoffeeShopPOS : Form
     {
         private readonly BindingList<Product> _products = new BindingList<Product>();
+
+        private decimal transactionTotal;
+        public decimal TransactionTotal
+        {
+            get => transactionTotal;
+            set
+            {
+                transactionTotal = value;
+                txtTotal.Text = $@"{transactionTotal:C}";
+            }
+        }
+
         public CoffeeShopPOS()
         {
             InitializeComponent();
@@ -44,9 +57,8 @@ namespace CoffeeShop.view.menuControl
                 foreach (TabPage tp in tabControl1.TabPages)
                 {
                     var flp = new FlowLayoutPanel { Dock = DockStyle.Fill };
-                    
-                    var products = db.Products.Where(p => p.ProductType.Id.ToString() == tp.Name).ToList();
 
+                    var products = db.Products.Where(p => p.ProductType.Id.ToString() == tp.Name).ToList();
                     foreach (var prod in products)
                     {
                         var b = new Button
@@ -70,12 +82,21 @@ namespace CoffeeShop.view.menuControl
             var product = (Product) b.Tag;
 
             _products.Add(product);
+            UpdateCustomerInformationPanel(product);
 
+            TransactionTotal += product.Price;
             lstProductsChoosen.SelectedIndex = lstProductsChoosen.Items.Count - 1;
 
         }
 
+        private void UpdateCustomerInformationPanel(Product product)
+        {
+            var currentDescription = product.Description;
+            var currentPrice = $"{product.Price:c}";
+            var currentDescriptionPadded = currentDescription.PadRight(38);
 
+            txtInfopanel.Text = currentDescriptionPadded + currentPrice;
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -92,9 +113,32 @@ namespace CoffeeShop.view.menuControl
             var currentDescription = ((Product) e.ListItem).Description;
             //var currentPrice = string.Format("{0:c}",((Product)e.ListItem).Price);
             var currentPrice = $"{((Product) e.ListItem).Price:c}";
-            var currentDescriptionPadded = currentDescription.PadRight(30);
+            var currentDescriptionPadded = currentDescription.PadRight(29);
 
             e.Value = currentDescriptionPadded + currentPrice;
+        }
+
+        private void DeleteItem(object sender, EventArgs e)
+        {
+            var productSelected = (Product) lstProductsChoosen.SelectedItem;
+
+            if (productSelected == null) return;
+
+            _products.Remove(productSelected);
+            TransactionTotal -= productSelected.Price;
+
+        }
+
+        private void Payment(object sender, EventArgs e)
+        {
+            var payment = new Payment();
+            payment.Show();
+            payment.PaymentMade += Payment_PaymentMade;
+        }
+
+        private static void Payment_PaymentMade(object sender, Payment.PaymentMadeEventArgs e)
+        {
+            MessageBox.Show(e.PaymentSuccess.ToString());
         }
     }
 }

@@ -86,6 +86,12 @@
     <Compile Include="view\menuControl\CoffeeShopPOS.Designer.cs">
       <DependentUpon>CoffeeShopPOS.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\menuControl\Payment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\menuControl\Payment.Designer.cs">
+      <DependentUpon>Payment.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\ViewProducts.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\menuControl\CoffeeShopPOS.resx">
       <DependentUpon>CoffeeShopPOS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\menuControl\Payment.resx">
+      <DependentUpon>Payment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\ViewProducts.resx">
       <DependentUpon>ViewProducts.cs</DependentUpon>

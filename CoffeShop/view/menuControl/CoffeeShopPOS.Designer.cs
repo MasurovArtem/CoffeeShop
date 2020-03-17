@@ -29,9 +29,11 @@
         private void InitializeComponent()
         {
             this.lstProductsChoosen = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.txtInfopanel = new System.Windows.Forms.TextBox();
+            this.btnPay = new System.Windows.Forms.Button();
+            this.txtTotal = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lstProductsChoosen
@@ -45,15 +47,15 @@
             this.lstProductsChoosen.TabIndex = 0;
             this.lstProductsChoosen.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.FormatListItem);
             // 
-            // button1
+            // btnDelete
             // 
-            this.button1.Location = new System.Drawing.Point(611, 473);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 39);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnDelete.Location = new System.Drawing.Point(576, 466);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(126, 35);
+            this.btnDelete.TabIndex = 1;
+            this.btnDelete.Text = "&Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.DeleteItem);
             // 
             // tabControl1
             // 
@@ -72,17 +74,38 @@
             this.txtInfopanel.TabIndex = 3;
             this.txtInfopanel.Text = "Next customer";
             // 
+            // btnPay
+            // 
+            this.btnPay.BackColor = System.Drawing.Color.Coral;
+            this.btnPay.Location = new System.Drawing.Point(15, 466);
+            this.btnPay.Name = "btnPay";
+            this.btnPay.Size = new System.Drawing.Size(558, 35);
+            this.btnPay.TabIndex = 4;
+            this.btnPay.Text = "Pay";
+            this.btnPay.UseVisualStyleBackColor = false;
+            this.btnPay.Click += new System.EventHandler(this.Payment);
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.Location = new System.Drawing.Point(710, 469);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(268, 32);
+            this.txtTotal.TabIndex = 5;
+            // 
             // CoffeeShopPOS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(990, 575);
+            this.Controls.Add(this.txtTotal);
+            this.Controls.Add(this.btnPay);
             this.Controls.Add(this.txtInfopanel);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.lstProductsChoosen);
             this.Name = "CoffeeShopPOS";
-            this.Text = "s";
+            this.Text = "Welcome To The Coffee Shop";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -91,8 +114,10 @@
         #endregion
 
         private System.Windows.Forms.ListBox lstProductsChoosen;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TextBox txtInfopanel;
+        private System.Windows.Forms.Button btnPay;
+        private System.Windows.Forms.TextBox txtTotal;
     }
 }
