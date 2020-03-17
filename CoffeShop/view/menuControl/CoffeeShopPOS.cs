@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using CoffeeShop.model;
 
@@ -19,11 +15,12 @@ namespace CoffeeShop.view.menuControl
             InitializeComponent();
 
             
-
             lstProductsChoosen.DataSource = _products;
             lstProductsChoosen.DisplayMember = "Description";
 
             CreateTabbedPanel();
+
+            AddProductsToTabbedPanel();
         }
 
         private void CreateTabbedPanel()
@@ -37,6 +34,48 @@ namespace CoffeeShop.view.menuControl
             }
                 
         }
+
+        private void AddProductsToTabbedPanel()
+        {
+
+
+            using (var db = new CoffeeDbContext())
+            {
+                foreach (TabPage tp in tabControl1.TabPages)
+                {
+                    var flp = new FlowLayoutPanel { Dock = DockStyle.Fill };
+                    
+                    var products = db.Products.Where(p => p.ProductType.Id.ToString() == tp.Name).ToList();
+
+                    foreach (var prod in products)
+                    {
+                        var b = new Button
+                        {
+                            Text = prod.Description,
+                            Size = new Size(100, 100),
+                            Tag = prod,
+                        };
+                        b.Click += new EventHandler(UpdateProductList);
+                        flp.Controls.Add(b);
+                    }
+
+                    tp.Controls.Add(flp);
+                }
+            }
+        }
+
+        private void UpdateProductList(object sender, EventArgs e)
+        {
+            var b = (Button)sender;
+            var product = (Product) b.Tag;
+
+            _products.Add(product);
+
+            lstProductsChoosen.SelectedIndex = lstProductsChoosen.Items.Count - 1;
+
+        }
+
+
 
         private void button1_Click(object sender, EventArgs e)
         {
