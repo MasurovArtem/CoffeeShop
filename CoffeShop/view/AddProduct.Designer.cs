@@ -40,6 +40,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.UploadImage = new System.Windows.Forms.Button();
             this.cboCategory = new System.Windows.Forms.ComboBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,6 +119,7 @@
             this.btnSave.TabIndex = 9;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // UploadImage
             // 
@@ -127,6 +129,7 @@
             this.UploadImage.TabIndex = 10;
             this.UploadImage.Text = "Upload";
             this.UploadImage.UseVisualStyleBackColor = true;
+            this.UploadImage.Click += new System.EventHandler(this.UploadImage_Click);
             // 
             // cboCategory
             // 
@@ -135,6 +138,10 @@
             this.cboCategory.Name = "cboCategory";
             this.cboCategory.Size = new System.Drawing.Size(305, 28);
             this.cboCategory.TabIndex = 11;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // AddProduct
             // 
@@ -174,5 +181,6 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button UploadImage;
         private System.Windows.Forms.ComboBox cboCategory;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
