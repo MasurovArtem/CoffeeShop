@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
@@ -135,7 +136,76 @@ namespace CoffeeShop.view.menuControl
             var payment = new Payment();
             payment.PaymentMade += PaymentSuccess;
             payment.PaymentAmount = TransactionTotal;
-            payment.ShowDialog();
+            
+            var res = payment.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+                PrintReceipt();
+            }
+        }
+
+        private void PrintReceipt()
+        {
+            var printDialog = new PrintDialog();
+            var printDocument = new PrintDocument();
+
+            printDialog.Document = printDocument;
+
+            printDocument.PrintPage += PrintDocument_PrintPage;
+
+            var result = printDialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                printDocument.Print();
+            }
+        }
+
+        private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            var graphics = e.Graphics;
+            var font = new Font("Courier New", 12);
+            var fontHeight = font.GetHeight();
+
+            var startX = 10;
+            var startY = 10;
+            var offset = 40;
+
+            graphics.DrawString
+            (
+                "Wellcome to the coffee shop",
+                new Font("Courier New", 18),
+                new SolidBrush(Color.Black),
+                startX,
+                startY
+            );
+
+            foreach (Product product in _products)
+            {
+                string productDecription = product.Description.PadRight(30);
+                string productTotal = $@"{product.Price:C}";
+                string productLine = productDecription + productTotal;
+
+                graphics.DrawString
+                (
+                    productLine,
+                    font,
+                    new SolidBrush(Color.Black),
+                    startX,
+                    startY + offset
+                );
+
+                offset += (int) fontHeight + 5;
+            }
+
+            offset += 20;
+            graphics.DrawString
+                (
+                    "Total to pay".PadRight(30) + $@"{transactionTotal:C}",
+                    font,
+                    new SolidBrush(Color.Black),
+                    startX,
+                    startY + offset
+                );
         }
 
         private void PaymentSuccess(object sender, Payment.PaymentMadeEventArgs e)
@@ -147,8 +217,7 @@ namespace CoffeeShop.view.menuControl
             };
             foreach (var product in _products)
             {
-                var tItem = new TransactionItem();
-                tItem.ProductId = product.Id;
+                var tItem = new TransactionItem {ProductId = product.Id};
                 transaction.TransactionItem.Add(tItem);
             }
 

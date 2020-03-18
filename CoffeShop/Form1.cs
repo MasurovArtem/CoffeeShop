@@ -42,5 +42,11 @@ namespace CoffeeShop
             var coffeeShopPOS = new CoffeeShopPOS();
             coffeeShopPOS.Show();
         }
+
+        private void bthOpenGraph_Click(object sender, EventArgs e)
+        {
+            var displaySalesGraph = new DisplaySales();
+            displaySalesGraph.Show();
+        }
     }
 }

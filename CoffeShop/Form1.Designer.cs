@@ -33,7 +33,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnOpenPOS = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.bthOpenGraph = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -82,7 +82,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.bthOpenGraph);
             this.groupBox2.Location = new System.Drawing.Point(12, 229);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(412, 88);
@@ -90,14 +90,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Start system";
             // 
-            // button2
+            // bthOpenGraph
             // 
-            this.button2.Location = new System.Drawing.Point(6, 30);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(400, 39);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Open Till";
-            this.button2.UseVisualStyleBackColor = true;
+            this.bthOpenGraph.Location = new System.Drawing.Point(6, 30);
+            this.bthOpenGraph.Name = "bthOpenGraph";
+            this.bthOpenGraph.Size = new System.Drawing.Size(400, 39);
+            this.bthOpenGraph.TabIndex = 3;
+            this.bthOpenGraph.Text = "Open Till";
+            this.bthOpenGraph.UseVisualStyleBackColor = true;
+            this.bthOpenGraph.Click += new System.EventHandler(this.bthOpenGraph_Click);
             // 
             // Form1
             // 
@@ -121,7 +122,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnOpenPOS;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button bthOpenGraph;
     }
 }
 

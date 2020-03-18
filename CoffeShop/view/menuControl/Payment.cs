@@ -60,6 +60,7 @@ namespace CoffeeShop.view.menuControl
             {
                 MessageBox.Show($@"Please give {total:C}");
                 PaymentMade(this, new PaymentMadeEventArgs() { PaymentSuccess = false });
+                DialogResult = DialogResult.OK;
             }
             
         }
