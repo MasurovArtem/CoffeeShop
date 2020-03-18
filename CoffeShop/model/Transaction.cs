@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CoffeeShop.model
 {
@@ -6,6 +7,7 @@ namespace CoffeeShop.model
     {
         public int Id { get; set; }
         public DateTime? TransactionDate { get; set; }
-
+            
+        public ICollection<TransactionItem> TransactionItem { get; set; }
     }
 }

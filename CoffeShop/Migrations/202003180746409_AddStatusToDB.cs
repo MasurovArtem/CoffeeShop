@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AllEntities : DbMigration
+    public partial class AddStatusToDB : DbMigration
     {
         public override void Up()
         {
@@ -35,14 +35,14 @@
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        TransactionId = c.Int(nullable: false),
                         ProductId = c.Int(nullable: false),
+                        Transaction_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Products", t => t.ProductId, cascadeDelete: true)
-                .ForeignKey("dbo.Transactions", t => t.TransactionId, cascadeDelete: true)
-                .Index(t => t.TransactionId)
-                .Index(t => t.ProductId);
+                .ForeignKey("dbo.Transactions", t => t.Transaction_Id)
+                .Index(t => t.ProductId)
+                .Index(t => t.Transaction_Id);
             
             CreateTable(
                 "dbo.Transactions",
@@ -57,11 +57,11 @@
         
         public override void Down()
         {
-            DropForeignKey("dbo.TransactionItems", "TransactionId", "dbo.Transactions");
+            DropForeignKey("dbo.TransactionItems", "Transaction_Id", "dbo.Transactions");
             DropForeignKey("dbo.TransactionItems", "ProductId", "dbo.Products");
             DropForeignKey("dbo.Products", "ProductTypeId", "dbo.ProductTypes");
+            DropIndex("dbo.TransactionItems", new[] { "Transaction_Id" });
             DropIndex("dbo.TransactionItems", new[] { "ProductId" });
-            DropIndex("dbo.TransactionItems", new[] { "TransactionId" });
             DropIndex("dbo.Products", new[] { "ProductTypeId" });
             DropTable("dbo.Transactions");
             DropTable("dbo.TransactionItems");

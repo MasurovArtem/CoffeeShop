@@ -3,11 +3,23 @@ using System.Windows.Forms;
 
 namespace CoffeeShop.view.menuControl
 {
+    
+
     public partial class Payment : Form
     {
+        public class PaymentMadeEventArgs : EventArgs
+        {
+            private bool _paymentSuccess;
+
+            public bool PaymentSuccess
+            {
+                get => _paymentSuccess;
+                set { _paymentSuccess = value; }
+            }
+        }
 
         public delegate void PaymentMadeEvent(object sender, PaymentMadeEventArgs e);
-
+       
         public event PaymentMadeEvent PaymentMade;
 
         private decimal paymentAmount;
@@ -17,20 +29,10 @@ namespace CoffeeShop.view.menuControl
             set
             {
                 paymentAmount = value;
-                txtPaymentAmount.Text = $@"{paymentAmount:C}";
+                txtAmountToPay.Text = $@"{paymentAmount}";
             }
         }
 
-        public class PaymentMadeEventArgs : EventArgs
-        {
-            private bool paymentSuccess;
-
-            public bool PaymentSuccess
-            {
-                get => paymentSuccess;
-                set { paymentSuccess = value; }
-            }
-        }
 
         public Payment()
         {
@@ -43,7 +45,7 @@ namespace CoffeeShop.view.menuControl
             try
             {
 
-                total = decimal.Parse(txtAmount.Text) - decimal.Parse(txtPaymentAmount.Text);
+                total = decimal.Parse(txtAmountToPay.Text) - decimal.Parse(txtPaymentAmount.Text);
             }
             catch
             {
@@ -52,7 +54,7 @@ namespace CoffeeShop.view.menuControl
             }
             if (total > 0)
             {
-                txtPaymentAmount.Text = total.ToString();
+                txtAmountToPay.Text = total.ToString();
             }
             else
             {

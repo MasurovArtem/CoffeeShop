@@ -1,4 +1,5 @@
-﻿using CoffeeShop.model;
+﻿using System.Collections.Generic;
+using CoffeeShop.model;
 
 namespace CoffeeShop
 {
@@ -6,9 +7,6 @@ namespace CoffeeShop
     {
         public int Id { get; set; }
         
-        public int TransactionId { get; set; }
-        public Transaction Transaction { get; set; }
-
         public int ProductId { get; set; }
         public Product Product { get; set; }
 

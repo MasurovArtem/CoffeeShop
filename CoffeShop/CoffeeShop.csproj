@@ -45,6 +45,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -62,9 +63,9 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202003161323334_AllEntities.cs" />
-    <Compile Include="Migrations\202003161323334_AllEntities.designer.cs">
-      <DependentUpon>202003161323334_AllEntities.cs</DependentUpon>
+    <Compile Include="Migrations\202003180746409_AddStatusToDB.cs" />
+    <Compile Include="Migrations\202003180746409_AddStatusToDB.designer.cs">
+      <DependentUpon>202003180746409_AddStatusToDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="model\CoffeeDbContext.cs" />
@@ -86,6 +87,12 @@
     <Compile Include="view\menuControl\CoffeeShopPOS.Designer.cs">
       <DependentUpon>CoffeeShopPOS.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\menuControl\DisplaySales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\menuControl\DisplaySales.Designer.cs">
+      <DependentUpon>DisplaySales.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\menuControl\Payment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,8 +108,8 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003161323334_AllEntities.resx">
-      <DependentUpon>202003161323334_AllEntities.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003180746409_AddStatusToDB.resx">
+      <DependentUpon>202003180746409_AddStatusToDB.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -118,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\menuControl\CoffeeShopPOS.resx">
       <DependentUpon>CoffeeShopPOS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\menuControl\DisplaySales.resx">
+      <DependentUpon>DisplaySales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\menuControl\Payment.resx">
       <DependentUpon>Payment.cs</DependentUpon>

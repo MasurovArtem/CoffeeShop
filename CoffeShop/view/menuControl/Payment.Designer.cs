@@ -30,7 +30,7 @@
         {
             this.lblAmount = new System.Windows.Forms.Label();
             this.lblPaymentAmount = new System.Windows.Forms.Label();
-            this.txtAmount = new System.Windows.Forms.TextBox();
+            this.txtAmountToPay = new System.Windows.Forms.TextBox();
             this.txtPaymentAmount = new System.Windows.Forms.TextBox();
             this.btnPaymentMade = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -53,12 +53,12 @@
             this.lblPaymentAmount.TabIndex = 1;
             this.lblPaymentAmount.Text = "Payment amount:";
             // 
-            // txtAmount
+            // txtAmountToPay
             // 
-            this.txtAmount.Location = new System.Drawing.Point(151, 20);
-            this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Size = new System.Drawing.Size(242, 26);
-            this.txtAmount.TabIndex = 2;
+            this.txtAmountToPay.Location = new System.Drawing.Point(151, 20);
+            this.txtAmountToPay.Name = "txtAmountToPay";
+            this.txtAmountToPay.Size = new System.Drawing.Size(242, 26);
+            this.txtAmountToPay.TabIndex = 2;
             // 
             // txtPaymentAmount
             // 
@@ -84,7 +84,7 @@
             this.ClientSize = new System.Drawing.Size(418, 178);
             this.Controls.Add(this.btnPaymentMade);
             this.Controls.Add(this.txtPaymentAmount);
-            this.Controls.Add(this.txtAmount);
+            this.Controls.Add(this.txtAmountToPay);
             this.Controls.Add(this.lblPaymentAmount);
             this.Controls.Add(this.lblAmount);
             this.Name = "Payment";
@@ -98,7 +98,7 @@
 
         private System.Windows.Forms.Label lblAmount;
         private System.Windows.Forms.Label lblPaymentAmount;
-        private System.Windows.Forms.TextBox txtAmount;
+        private System.Windows.Forms.TextBox txtAmountToPay;
         private System.Windows.Forms.TextBox txtPaymentAmount;
         private System.Windows.Forms.Button btnPaymentMade;
     }

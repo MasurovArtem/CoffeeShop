@@ -7,13 +7,13 @@ namespace CoffeeShop.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class AllEntities : IMigrationMetadata
+    public sealed partial class AddStatusToDB : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AllEntities));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddStatusToDB));
         
         string IMigrationMetadata.Id
         {
-            get { return "202003161323334_AllEntities"; }
+            get { return "202003180746409_AddStatusToDB"; }
         }
         
         string IMigrationMetadata.Source

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Globalization;
@@ -132,13 +133,30 @@ namespace CoffeeShop.view.menuControl
         private void Payment(object sender, EventArgs e)
         {
             var payment = new Payment();
-            payment.Show();
-            payment.PaymentMade += Payment_PaymentMade;
+            payment.PaymentMade += PaymentSuccess;
+            payment.PaymentAmount = TransactionTotal;
+            payment.ShowDialog();
         }
 
-        private static void Payment_PaymentMade(object sender, Payment.PaymentMadeEventArgs e)
+        private void PaymentSuccess(object sender, Payment.PaymentMadeEventArgs e)
         {
-            MessageBox.Show(e.PaymentSuccess.ToString());
+            var transaction = new Transaction
+            {
+                TransactionDate = DateTime.Now,
+                TransactionItem = new List<TransactionItem>()
+            };
+            foreach (var product in _products)
+            {
+                var tItem = new TransactionItem();
+                tItem.ProductId = product.Id;
+                transaction.TransactionItem.Add(tItem);
+            }
+
+            using (var _db = new CoffeeDbContext())
+            {
+                _db.Transactions.Add(transaction);
+                _db.SaveChanges();
+            }
         }
     }
 }
